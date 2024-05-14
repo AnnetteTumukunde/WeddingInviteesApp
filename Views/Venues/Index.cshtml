@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WeddingInviteesApp.Models.Venue>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Venue List</h3>
+
+<p>
+    @Html.ActionLink("Add Venue", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Venue Place
+        </th>
+        <th>
+            Venue Address
+        </th>
+        <th>
+            Venue Capacity
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.capacity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uuid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uuid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uuid })
+        </td>
+    </tr>
+}
+
+</table>

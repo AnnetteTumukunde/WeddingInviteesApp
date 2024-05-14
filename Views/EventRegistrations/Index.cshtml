@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WeddingInviteesApp.Models.EventRegistration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Event Invitations</h3>
+
+<p>
+    @Html.ActionLink("Add Event Invitation", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Attendee Email
+        </th>
+        <th>
+            Event Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attendee1.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventDetail.eventName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uuid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uuid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uuid })
+        </td>
+    </tr>
+}
+
+</table>
